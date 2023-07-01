@@ -1,0 +1,63 @@
+.listHeaderBox {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	margin-top: 64px;
+	margin-bottom: 14px;
+	padding-left: 16px;
+	padding-right: 16px;
+	align-items: center;
+}
+
+.postBox {
+	padding: 12px 16px;
+}
+
+.title {
+	font-size: 16px;
+	font-weight: 600;
+	letter-spacing: -0.11px;
+	color: #ecedee;
+}
+
+.subtitle {
+	font-size: 15px;
+	letter-spacing: -0.09px;
+	line-height: 20px;
+	color: #ecedee;
+	opacity: 0.6;
+	margin-top: 8px;
+}
+
+.postFooterText {
+	font-size: 12px;
+	letter-spacing: -0.09px;
+	line-height: 18px;
+	color: #ffffff;
+	opacity: 0.3;
+	margin-right: 6px;
+}
+
+.postFooterBox {
+	display: flex;
+	flex-direction: row;
+	margin-top: 8px;
+}
+
+.listTitle {
+	color: #727888;
+	opacity: 0.6;
+	font-size: 13px;
+	letter-spacing: 3px;
+	text-transform: uppercase;
+	font-weight: 600;
+}
+
+.linkText {
+	font-size: 12px;
+	letter-spacing: -0.2px;
+	font-weight: 600;
+	background: linear-gradient(to right, #5b48d5, #5b48d5);
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+}

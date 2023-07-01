@@ -1,22 +1,30 @@
 import { getRedis } from '@/api/redis'
-import { HeroBox } from '@/components'
+import { HeroBox, PostList } from '@/components'
 import MainLayout from '@/layouts/MainLayout.component'
 import React from 'react'
 
-export default function Home({ homeData }) {
+export default function Home({ homeData, blogData }) {
+	console.log(blogData)
 	return (
 		<MainLayout>
-			<HeroBox subtitle={homeData.title} content={homeData.heroText} />
+			<section id="hero">
+				<HeroBox subtitle={homeData.title} content={homeData.heroText} />
+			</section>
+			<section id="homeBlogPreview">
+				<PostList posts={blogData} isListPreview={true} />
+			</section>
 		</MainLayout>
 	)
 }
 
 export async function getStaticProps() {
 	const homeData = await getRedis('home', 'data')
+	const blogData = await getRedis('blog', 'data')
 
 	return {
 		props: {
-			homeData
+			homeData,
+			blogData
 		},
 		revalidate: 1
 	}
