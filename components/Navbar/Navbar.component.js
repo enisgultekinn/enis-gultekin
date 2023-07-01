@@ -18,8 +18,8 @@ const Navbar = () => {
 			</span>
 			<span>
 				{socialLinks.map((item, index) => (
-					<a href={item.path} key={index} className={styles.socialLink}>
-						<Image src={item.icon} width={18} height={18} alt={item.path} />
+					<a href={item.path} key={index}>
+						<Image src={item.icon} width={18} height={18} alt={item.path} className={styles.socialLink} />
 					</a>
 				))}
 			</span>
