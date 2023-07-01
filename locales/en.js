@@ -9,5 +9,10 @@ export default {
 		about: 'Hakkımda',
 		contact: 'İletişim',
 		blog: 'Blog'
+	},
+	_menuLinks: {
+		home: 'anasayfa',
+		about: 'hakkımda',
+		blog: 'Blog'
 	}
 }
