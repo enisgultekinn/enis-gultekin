@@ -4,15 +4,16 @@ import MainLayout from '@/layouts/MainLayout.component'
 import React from 'react'
 
 export default function Home({ homeData, blogData }) {
-	console.log(blogData)
 	return (
 		<MainLayout>
-			<section id="hero">
-				<HeroBox subtitle={homeData.title} content={homeData.heroText} />
-			</section>
-			<section id="homeBlogPreview">
-				<PostList posts={blogData} isListPreview={true} />
-			</section>
+			<main>
+				<section id="hero">
+					<HeroBox subtitle={homeData.title} content={homeData.heroText} />
+				</section>
+				<section id="homeBlogPreview">
+					<PostList posts={blogData} isListPreview={true} />
+				</section>
+			</main>
 		</MainLayout>
 	)
 }

@@ -30,14 +30,15 @@ const PostList = ({ posts, limit = 4, isListPreview }) => {
 				visiblePosts.map((post, index) => (
 					<a href="#" key={index}>
 						<article className={styles.postBox}>
-							<p className={styles.title}>{post.title}</p>
-							<p className={styles.subtitle}>{substringText(post.content, 154)}</p>
-							<div className={styles.postFooterBox}>
-								<aside className={styles.postFooterText}>{post.category}</aside>
-								<i class={`${styles.postFooterText} bi bi-stars`}></i>
-
-								<aside className={styles.postFooterText}>{dateToString(post.createdDate)}</aside>
-							</div>
+							<header>
+								<p className={styles.title}>{post.title}</p>
+								<p className={styles.subtitle}>{substringText(post.content, 154)}</p>
+								<div className={styles.postFooterBox}>
+									<p className={styles.postFooterText}>{post.category}</p>
+									<i class={`${styles.postFooterText} bi bi-stars`}></i>
+									<p className={styles.postFooterText}>{dateToString(post.createdDate)}</p>
+								</div>
+							</header>
 						</article>
 					</a>
 				))}
