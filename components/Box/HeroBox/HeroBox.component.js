@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 const HeroBox = ({ children, subtitle, content, ...props }) => {
 	return (
-		<div className={styles.container}>
+		<>
 			<div className={styles.personDetailBox}>
 				<Image src="/fedora.jpeg" className={styles.avatar} alt="avatar" width={96} height={96} />
 				<span className={styles.personDetailTextBox}>
@@ -13,7 +13,7 @@ const HeroBox = ({ children, subtitle, content, ...props }) => {
 				</span>
 			</div>
 			<div className={styles.content}>{content}</div>
-		</div>
+		</>
 	)
 }
 

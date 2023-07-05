@@ -7,7 +7,9 @@
 
 .container {
 	width: 708px;
-	padding-top: 24px;
+	margin-top: 24px;
+	padding-left: 16px;
+	padding-right: 16px;
 }
 
 .gradientBox {
@@ -16,6 +18,5 @@
 	height: 70px;
 	position: absolute;
 	border-radius: 2px;
-	background: rgb(58, 141, 180);
 	background: linear-gradient(90deg, rgba(58, 141, 180, 1) 0%, rgba(253, 29, 84, 1) 50%, rgba(237, 252, 69, 1) 100%);
 }

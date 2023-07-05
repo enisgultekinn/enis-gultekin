@@ -28,7 +28,7 @@ const PostList = ({ posts, limit = 4, isListPreview }) => {
 			)}
 			{visiblePosts &&
 				visiblePosts.map((post, index) => (
-					<a href="#" key={index}>
+					<Link href={`/blog/${post.slug}`} key={index}>
 						<article className={styles.postBox}>
 							<header>
 								<p className={styles.title}>{post.title}</p>
@@ -40,7 +40,7 @@ const PostList = ({ posts, limit = 4, isListPreview }) => {
 								</div>
 							</header>
 						</article>
-					</a>
+					</Link>
 				))}
 		</>
 	)

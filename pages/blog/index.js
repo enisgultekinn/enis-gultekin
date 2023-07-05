@@ -5,7 +5,7 @@ import MainLayout from '@/layouts/MainLayout.component'
 export default function Home({ blogData, blogInfoData }) {
 	return (
 		<MainLayout>
-			<main>
+			<main style={{ padding: '12px 16px' }}>
 				<BlogHeaderBox subtitle={blogInfoData.info} />
 				<PostList posts={blogData} />
 			</main>
