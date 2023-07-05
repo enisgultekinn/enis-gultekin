@@ -7,7 +7,7 @@ export default function Home({ blogData, blogInfoData }) {
 		<MainLayout>
 			<main style={{ padding: '12px 16px' }}>
 				<BlogHeaderBox subtitle={blogInfoData.info} />
-				<PostList posts={blogData} />
+				<PostList posts={blogData} limit={24} />
 			</main>
 		</MainLayout>
 	)

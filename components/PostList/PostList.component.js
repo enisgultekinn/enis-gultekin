@@ -5,16 +5,7 @@ import { dateToString } from '@/utils/date'
 import Link from 'next/link'
 
 const PostList = ({ posts, limit = 4, isListPreview }) => {
-	const [visiblePosts, setVisiblePosts] = useState()
-
-	useEffect(() => {
-		const setPostsVisible = () => {
-			const limitedArr = posts.slice(0, limit)
-			setVisiblePosts(limitedArr)
-		}
-
-		setPostsVisible()
-	}, [limit])
+	const visiblePosts = posts.slice(0, limit)
 
 	return (
 		<>
@@ -26,22 +17,21 @@ const PostList = ({ posts, limit = 4, isListPreview }) => {
 					</Link>
 				</div>
 			)}
-			{visiblePosts &&
-				visiblePosts.map((post, index) => (
-					<Link href={`/blog/${post.slug}`} key={index}>
-						<article className={styles.postBox}>
-							<header>
-								<p className={styles.title}>{post.title}</p>
-								<p className={styles.subtitle}>{substringText(post.content, 154)}</p>
-								<div className={styles.postFooterBox}>
-									<p className={styles.postFooterText}>{post.category}</p>
-									<i class={`${styles.postFooterText} bi bi-stars`}></i>
-									<p className={styles.postFooterText}>{dateToString(post.createdDate)}</p>
-								</div>
-							</header>
-						</article>
-					</Link>
-				))}
+			{visiblePosts.map((post, index) => (
+				<Link href={`/blog/${post.slug}`} key={index}>
+					<article className={styles.postBox}>
+						<header>
+							<p className={styles.title}>{post.title}</p>
+							<p className={styles.subtitle}>{post.subtitle}</p>
+							<div className={styles.postFooterBox}>
+								<p className={styles.postFooterText}>{post.category}</p>
+								<i className={`${styles.postFooterText} bi bi-stars`}></i>
+								<p className={styles.postFooterText}>{dateToString(post.createdDate)}</p>
+							</div>
+						</header>
+					</article>
+				</Link>
+			))}
 		</>
 	)
 }

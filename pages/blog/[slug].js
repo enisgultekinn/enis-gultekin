@@ -1,12 +1,17 @@
-import { BlogPostBox } from '@/components'
 import MainLayout from '@/layouts/MainLayout.component'
+import { serialize } from 'next-mdx-remote/serialize'
 import redis from '@/lib/redis'
+import { MDXRemote } from 'next-mdx-remote'
 
-export default function BlogItem({ blog }) {
+import { useMDXComponents } from '@/components/Mdx/Mdx.component'
+
+export default function BlogItem({ source }) {
 	return (
 		<MainLayout>
 			<main>
-				<BlogPostBox title={blog.title} content={blog.content} />
+				<article>
+					<MDXRemote {...source} components={useMDXComponents()} />
+				</article>
 			</main>
 		</MainLayout>
 	)
@@ -28,8 +33,7 @@ export async function getStaticProps({ params }) {
 	const blogData = (await redis.hget('blog', 'data')) || []
 	const blog = blogData.find((item) => item.slug === params.slug)
 
-	return {
-		props: { blog },
-		revalidate: 1
-	}
+	const mdxSource = await serialize(blog.content)
+
+	return { props: { source: mdxSource } }
 }
