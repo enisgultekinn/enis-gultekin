@@ -1,11 +1,10 @@
-import { substringText } from '@/utils/string'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import styles from './PostList.module.scss'
 import { dateToString } from '@/utils/date'
 import Link from 'next/link'
 
 const PostList = ({ posts, limit = 4, isListPreview }) => {
-	const visiblePosts = posts.slice(0, limit)
+	const visiblePosts = posts.slice(0, limit).sort((a, b) => new Date(b.createdDate) - new Date(a.createdDate))
 
 	return (
 		<>
