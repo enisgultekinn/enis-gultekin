@@ -54,7 +54,8 @@ export function useMDXComponents(components) {
 		a: CustomLink,
 		blockquote: (props) => <blockquote className={styles.blockquote}>{props.children}</blockquote>,
 		pre: CodeBlock,
-		img: ImageComp
+		img: ImageComp,
+		hr: () => <hr className={styles.hr} />
 	}
 	return { ...components }
 }

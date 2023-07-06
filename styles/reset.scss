@@ -2,9 +2,24 @@
     Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
     - The "symbol *" part is to solve Firefox SVG sprite bug
  */
-*:where(:not(html, iframe, canvas, img, svg, video):not(svg *, symbol *)) {
-	all: unset;
-	display: revert;
+
+*,
+:before,
+:after {
+	box-sizing: border-box;
+	-webkit-user-drag: none;
+	outline: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+	margin: 0;
+	font: inherit;
 }
 
 /* Preferred box-sizing value */
@@ -18,6 +33,7 @@
 a,
 button {
 	cursor: revert;
+	text-decoration: none;
 }
 
 /* Remove list styles (bullets/numbers) */
