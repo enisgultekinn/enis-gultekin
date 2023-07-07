@@ -1,7 +1,5 @@
-import { t } from '@/locales'
-
 export default [
 	{ name: 'home', path: '/' },
-	{ name: 'about', path: '/about' },
+	{ name: 'about', path: '/hakkimda' },
 	{ name: 'blog', path: '/blog' }
 ]

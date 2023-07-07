@@ -2,6 +2,9 @@ import { Navbar } from '@/components'
 import React from 'react'
 import styles from './MainLayout.module.scss'
 import { Inter } from 'next/font/google'
+import { NextSeo } from 'next-seo'
+import { useRouter } from 'next/router'
+import { metaData } from '@/config'
 
 const inter = Inter({
 	subsets: ['latin'],
@@ -9,15 +12,29 @@ const inter = Inter({
 	display: 'swap'
 })
 
-const MainLayout = ({ children }) => {
+const MainLayout = ({ children, openGraph }) => {
+	const router = useRouter()
+	const page = router.pathname.split('/')[1]
+	const pageName = page.slice(0, 1).toLocaleUpperCase() + page.slice(1, page.length) || 'Ana Sayfa'
+	const description = openGraph?.description || metaData.description[page] || metaData.description.default
+	const metaUrl = metaData.url + router.asPath
+
 	return (
-		<div className={`${styles.layout} ${inter.className}`}>
-			<div className={styles.gradientBox} />
-			<div className={styles.container}>
-				<Navbar />
-				{children}
+		<>
+			<NextSeo
+				canonical={metaUrl}
+				title={openGraph?.title || pageName}
+				description={description}
+				openGraph={openGraph}
+			/>
+			<div className={`${styles.layout} ${inter.className}`}>
+				<div className={styles.gradientBox} />
+				<div className={styles.container}>
+					<Navbar />
+					{children}
+				</div>
 			</div>
-		</div>
+		</>
 	)
 }
 
