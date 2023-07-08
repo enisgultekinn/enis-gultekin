@@ -1,10 +1,10 @@
-import { Navbar } from '@/components'
 import React from 'react'
 import styles from './MainLayout.module.scss'
 import { Inter } from 'next/font/google'
 import { NextSeo } from 'next-seo'
 import { useRouter } from 'next/router'
 import { metaData } from '@/config'
+import { Footer, Navbar } from '@/components'
 
 const inter = Inter({
 	subsets: ['latin'],
@@ -30,8 +30,13 @@ const MainLayout = ({ children, openGraph }) => {
 			<div className={`${styles.layout} ${inter.className}`}>
 				<div className={styles.gradientBox} />
 				<div className={styles.container}>
-					<Navbar />
-					{children}
+					<span>
+						<Navbar />
+						{children}
+					</span>
+					<span>
+						<Footer />
+					</span>
 				</div>
 			</div>
 		</>

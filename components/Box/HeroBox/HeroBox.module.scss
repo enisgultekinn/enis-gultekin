@@ -1,11 +1,10 @@
 .container {
 }
 
-.avatar {
-	width: 96px;
-	height: 96px;
+.image {
 	border-radius: 9999px;
-	border: 1px solid #0a0a0d;
+	border: 1px solid #ecedee;
+	object-fit: cover;
 }
 
 .title {

@@ -6,7 +6,7 @@ const HeroBox = ({ children, subtitle, content, ...props }) => {
 	return (
 		<>
 			<div className={styles.personDetailBox}>
-				<Image src="/fedora.jpeg" className={styles.avatar} alt="avatar" width={96} height={96} />
+				<Image src="/eg.jpeg" className={styles.image} alt="avatar" width={96} height={96} />
 				<span className={styles.personDetailTextBox}>
 					<h1 className={styles.title}>enis gültekin</h1>
 					<h3 className={styles.subtitle}>{subtitle}</h3>

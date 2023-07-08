@@ -4,6 +4,7 @@ import redis from '@/lib/redis'
 import { MDXRemote } from 'next-mdx-remote'
 import { useMDXComponents } from '@/components/Mdx/Mdx.component'
 import { metaData } from '@/config'
+import { AboutBox } from '@/components'
 
 export default function BlogItem({ blog, source }) {
 	const { title, subtitle, slug } = blog
@@ -21,11 +22,13 @@ export default function BlogItem({ blog, source }) {
 	}
 	return (
 		<MainLayout openGraph={openGraph}>
-			<main>
-				<article>
-					<MDXRemote {...source} components={useMDXComponents()} />
-				</article>
-			</main>
+			<section>
+				<main>
+					<article>
+						<MDXRemote {...source} components={useMDXComponents()} />
+					</article>
+				</main>
+			</section>
 		</MainLayout>
 	)
 }

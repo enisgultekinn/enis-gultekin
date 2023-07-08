@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './Mdx.module.scss'
 import Link from 'next/link'
 import Image from 'next/image'
+import { Balancer } from 'react-wrap-balancer'
 
 const CustomLink = (props) => {
 	const href = props.href
@@ -41,14 +42,18 @@ const ImageComp = (props) => {
 export function useMDXComponents(components) {
 	components = {
 		h1: (props) => (
-			<h1 className={styles.h1} {...props}>
-				{props.children}
-			</h1>
+			<Balancer>
+				<h1 className={styles.h1} {...props}>
+					{props.children}
+				</h1>
+			</Balancer>
 		),
 		h3: (props) => (
-			<h3 className={styles.h3} {...props}>
-				{props.children}
-			</h3>
+			<Balancer>
+				<h3 className={styles.h3} {...props}>
+					{props.children}
+				</h3>
+			</Balancer>
 		),
 		p: (props) => <p className={styles.p}>{props.children}</p>,
 		a: CustomLink,

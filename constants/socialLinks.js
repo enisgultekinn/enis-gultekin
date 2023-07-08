@@ -1,14 +1,14 @@
 export default [
 	{
-		icon: '/twitter.svg',
+		name: 'twitter',
 		path: 'https://twitter.com/enisglteknn'
 	},
 	{
-		icon: '/github.svg',
+		name: 'github',
 		path: 'https://github.com/enisgultekinn'
 	},
 	{
-		icon: '/mail.svg',
+		name: 'mail',
 		path: 'mailto: enisgltkn@gmail.com'
 	}
 ]
