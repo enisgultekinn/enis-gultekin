@@ -39,7 +39,7 @@ const ImageComp = (props) => {
 	return <img alt={props.alt} className={styles.image} {...props} />
 }
 
-export function useMDXComponents(components) {
+export default function useMDXComponents(components) {
 	components = {
 		h1: (props) => (
 			<h1 className={styles.h1} {...props}>
