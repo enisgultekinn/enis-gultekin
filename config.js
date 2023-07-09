@@ -13,6 +13,6 @@ export const metaData = {
 			"Enis Gültekin'in geçmişte ve şuanda yaptıkları hakkında bilgiler. Enis Gültekin'in mesleği Frontend developerdır.",
 		blog: "Enis Gültekin'in genellikle yazılım ve spor hakkında yazdığı blog yazıları vardır."
 	},
-	metaImage: 'https://enisgultekin.com/me.jpeg',
+	metaImage: 'https://enisgultekin.com/eg.jpeg',
 	twitterUsername: '@enisglteknn'
 }
