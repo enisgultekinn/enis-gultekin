@@ -42,18 +42,14 @@ const ImageComp = (props) => {
 export function useMDXComponents(components) {
 	components = {
 		h1: (props) => (
-			<Balancer>
-				<h1 className={styles.h1} {...props}>
-					{props.children}
-				</h1>
-			</Balancer>
+			<h1 className={styles.h1} {...props}>
+				<Balancer> {props.children}</Balancer>
+			</h1>
 		),
 		h3: (props) => (
-			<Balancer>
-				<h3 className={styles.h3} {...props}>
-					{props.children}
-				</h3>
-			</Balancer>
+			<h3 className={styles.h3} {...props}>
+				<Balancer> {props.children}</Balancer>
+			</h3>
 		),
 		p: (props) => <p className={styles.p}>{props.children}</p>,
 		a: CustomLink,

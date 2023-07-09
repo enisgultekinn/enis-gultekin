@@ -16,10 +16,20 @@
 	line-height: 22px;
 	letter-spacing: -0.18px;
 	margin-right: 24px;
+	position: relative;
 	transition: color 200ms;
 	&:hover {
 		color: rgba(255, 255, 255, 0.6);
 	}
+}
+
+.underline {
+	position: absolute;
+	bottom: -3px;
+	left: 0;
+	right: 0;
+	height: 1px;
+	background: linear-gradient(-90deg, rgba(234, 104, 136, 0.1), rgba(87, 217, 194, 0.8));
 }
 
 @media screen and (max-width: 560px) {
