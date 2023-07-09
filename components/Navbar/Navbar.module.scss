@@ -1,7 +1,7 @@
 .container {
 	background-color: #1c162f;
 	padding: 16px;
-	justify-content: space-between;
+
 	display: flex;
 	align-items: center;
 	border-radius: 12px;
@@ -19,5 +19,11 @@
 	transition: color 200ms;
 	&:hover {
 		color: rgba(255, 255, 255, 0.6);
+	}
+}
+
+@media screen and (max-width: 560px) {
+	.container {
+		margin-bottom: 50px;
 	}
 }

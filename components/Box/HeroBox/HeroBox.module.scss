@@ -39,3 +39,16 @@
 	margin-left: 16px;
 	flex-direction: column;
 }
+
+@media screen and (max-width: 560px) {
+	.personDetailBox {
+		flex-direction: column;
+	}
+	.personDetailTextBox {
+		margin-left: 0px;
+		margin-top: 12px;
+	}
+	.content {
+		font-size: 18px;
+	}
+}
