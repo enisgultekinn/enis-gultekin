@@ -4,8 +4,13 @@ import { dateToString } from '@/utils/date'
 import Link from 'next/link'
 import { timeToRead } from '@/utils/helpers'
 
-const PostList = ({ posts, limit = 4, isListPreview }) => {
+const PostList = ({ posts, limit = 4, isListPreview, blogViews }) => {
 	const visiblePosts = posts.slice(0, limit).sort((a, b) => new Date(b.createdDate) - new Date(a.createdDate))
+
+	const getPostViews = (slug) => {
+		const index = blogViews.findIndex((item) => item.slug === slug)
+		return blogViews[index]?.views || 0
+	}
 
 	return (
 		<>
@@ -30,6 +35,8 @@ const PostList = ({ posts, limit = 4, isListPreview }) => {
 							<p className={styles.subtitle}>{post.subtitle}</p>
 							<div className={styles.postInfoBox}>
 								<p className={styles.postInfoText}>{dateToString(post.createdDate)}</p>
+								<i className={`bi bi-chevron-double-right ${styles.postInfoText}`}></i>
+								<p className={styles.postInfoText}>{getPostViews(post.slug)} Görüntülenme</p>
 							</div>
 						</header>
 					</article>

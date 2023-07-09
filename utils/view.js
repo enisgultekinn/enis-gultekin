@@ -1,7 +1,7 @@
 import db from '@/config/firebase'
-import { doc, getDoc, setDoc } from 'firebase/firestore'
+import { collection, doc, getDoc, getDocs, setDoc } from 'firebase/firestore'
 
-const collection = 'blogViews'
+const collectionName = 'blogViews'
 
 export const viewCounter = async (slug) => {
 	const blogViewsData = await getViews(slug)
@@ -10,17 +10,26 @@ export const viewCounter = async (slug) => {
 	}
 
 	try {
-		return await setDoc(doc(db, collection, slug), data, { merge: true })
+		return await setDoc(doc(db, collectionName, slug), data, { merge: true })
 	} catch (error) {
 		return error
 	}
 }
 
-const getViews = async (slug) => {
-	const docRef = doc(db, collection, slug)
-	try {
-		return (await getDoc(docRef)).data()
-	} catch (error) {
-		return error
+export const getViews = async (slug) => {
+	if (slug) {
+		const docRef = doc(db, collectionName, slug)
+		try {
+			return (await getDoc(docRef)).data()
+		} catch (error) {
+			return error
+		}
+	} else {
+		const posts = []
+		const data = await getDocs(collection(db, collectionName))
+		data.forEach((doc) => {
+			posts.push({ slug: doc.id, ...doc.data() })
+		})
+		return posts
 	}
 }
