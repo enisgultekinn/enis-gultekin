@@ -1,8 +1,8 @@
 .container {
-	padding-bottom: 60px;
-	padding-top: 60px;
 	display: flex;
-	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	padding-top: 60px;
 }
 
 .link {
@@ -10,6 +10,16 @@
 	font-weight: 500;
 	font-size: 12px;
 	display: flex;
+	text-align: center;
+	padding-bottom: 10px;
+}
+
+.linksBox {
+	display: flex;
+}
+
+.linkIcon {
+	margin-right: 6px;
 }
 
 .linkRightBorder {

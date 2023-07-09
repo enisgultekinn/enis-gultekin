@@ -1,12 +1,13 @@
 import { getRedis } from '@/api/redis'
-import { AboutBox } from '@/components'
+import { AboutBox, Mdx } from '@/components'
 import MainLayout from '@/layouts/MainLayout.component'
+import { serialize } from 'next-mdx-remote/serialize'
 
-export default function About({ aboutData }) {
+export default function About({ source }) {
 	return (
 		<MainLayout>
 			<main>
-				<AboutBox data={aboutData} />
+				<AboutBox content={source} />
 			</main>
 		</MainLayout>
 	)
@@ -14,11 +15,12 @@ export default function About({ aboutData }) {
 
 export async function getStaticProps() {
 	const aboutData = await getRedis('about', 'data')
+	const mdxSource = await serialize(aboutData.aboutMe)
 
 	return {
 		props: {
-			aboutData
-		},
-		revalidate: 1
+			source: mdxSource,
+			aboutData: aboutData
+		}
 	}
 }
