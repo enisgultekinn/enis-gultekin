@@ -36,7 +36,16 @@ const CodeBlock = ({ children }) => {
 }
 
 const ImageComp = (props) => {
-	return <img alt={props.alt} className={styles.image} {...props} />
+	if (props.title) {
+		return (
+			<>
+				<img alt={props.alt} className={styles.image} {...props} />
+				<i className={styles.figcaption}>{props.title}</i>
+			</>
+		)
+	} else {
+		return <img alt={props.alt} className={styles.image} {...props} />
+	}
 }
 
 export default function useMDXComponents(components) {
