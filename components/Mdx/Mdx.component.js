@@ -52,13 +52,18 @@ export default function useMDXComponents(components) {
 	components = {
 		h1: (props) => (
 			<h1 className={styles.h1} {...props}>
-				<Balancer> {props.children}</Balancer>
+				<Balancer>{props.children}</Balancer>
 			</h1>
 		),
 		h3: (props) => (
 			<h3 className={styles.h3} {...props}>
-				<Balancer> {props.children}</Balancer>
+				<Balancer>{props.children}</Balancer>
 			</h3>
+		),
+		h5: (props) => (
+			<h5 className={styles.h5} {...props}>
+				<Balancer>{props.children}</Balancer>
+			</h5>
 		),
 		p: (props) => <p className={styles.p}>{props.children}</p>,
 		a: CustomLink,
