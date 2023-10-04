@@ -9,7 +9,7 @@ export default function Home({ homeData, blogData, blogViewsData }) {
 		<MainLayout>
 			<main>
 				<section id="hero">
-					<HeroBox subtitle={homeData.title} content={homeData.heroText} />
+					<HeroBox subtitle={homeData?.title} content={homeData?.heroText} />
 				</section>
 				<section id="homeBlogPreview">
 					<PostList posts={blogData} isListPreview={true} blogViews={blogViewsData} />
