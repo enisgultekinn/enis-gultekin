@@ -12,7 +12,7 @@ export default function Home({ homeData, blogData, blogViewsData }) {
 					<HeroBox subtitle={homeData?.title} content={homeData?.heroText} />
 				</section>
 				<section id="homeBlogPreview">
-					<PostList posts={blogData} isListPreview={true} blogViews={blogViewsData} />
+					<PostList posts={blogData} limit={4} isListPreview={true} blogViews={blogViewsData} />
 				</section>
 			</main>
 		</MainLayout>

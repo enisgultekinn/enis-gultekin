@@ -9,7 +9,7 @@ export default function Blog({ blogData, blogInfoData, blogViewsData }) {
 			<main>
 				<section>
 					<BlogHeaderBox subtitle={blogInfoData.info} />
-					<PostList posts={blogData} limit={4} blogViews={blogViewsData} />
+					<PostList posts={blogData} blogViews={blogViewsData} />
 				</section>
 			</main>
 		</MainLayout>

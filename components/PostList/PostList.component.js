@@ -4,8 +4,8 @@ import { dateToString } from '@/utils/date'
 import Link from 'next/link'
 import { timeToRead } from '@/utils/helpers'
 
-const PostList = ({ posts, limit = 4, isListPreview, blogViews }) => {
-	const visiblePosts = posts.slice(0, limit).sort((a, b) => new Date(b.createdDate) - new Date(a.createdDate))
+const PostList = ({ posts, limit, isListPreview, blogViews }) => {
+	const visiblePosts = posts.sort((a, b) => new Date(b.createdDate) - new Date(a.createdDate)).slice(0, limit)
 
 	const getPostViews = (slug) => {
 		const index = blogViews.findIndex((item) => item.slug === slug)
