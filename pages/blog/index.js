@@ -27,6 +27,6 @@ export async function getStaticProps() {
 			blogInfoData,
 			blogViewsData
 		},
-		revalidate: 5
+		revalidate: 1
 	}
 }

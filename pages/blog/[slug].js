@@ -51,5 +51,5 @@ export async function getStaticProps({ params }) {
 	await viewCounter(params.slug)
 	const mdxSource = await serialize(blog.content)
 
-	return { props: { source: mdxSource, blog: blog }, revalidate: 5 }
+	return { props: { source: mdxSource, blog: blog }, revalidate: 1 }
 }
