@@ -3,6 +3,7 @@ import styles from './PostList.module.scss'
 import { dateToString } from '@/utils/date'
 import Link from 'next/link'
 import { timeToRead } from '@/utils/helpers'
+import { motion } from 'framer-motion'
 
 const PostList = ({ posts, limit, isListPreview, blogViews }) => {
 	const visiblePosts = posts.sort((a, b) => new Date(b.createdDate) - new Date(a.createdDate)).slice(0, limit)
@@ -35,8 +36,15 @@ const PostList = ({ posts, limit, isListPreview, blogViews }) => {
 							<p className={styles.subtitle}>{post.subtitle}</p>
 							<div className={styles.postInfoBox}>
 								<p className={styles.postInfoText}>{dateToString(post.createdDate)}</p>
-								<i className={`bi bi-chevron-double-right ${styles.postInfoText}`}></i>
-								<p className={styles.postInfoText}>{getPostViews(post.slug)} Görüntülenme</p>
+								<motion.span
+									initial={{ opacity: 0 }}
+									animate={{ opacity: 1 }}
+									transition={{ duration: 0.3, delay: 0.2 }}
+									className={styles.postInfoText}
+								>
+									<i className={`bi bi-chevron-double-right ${styles.postInfoText}`}></i>
+									<p className={styles.postInfoText}>{getPostViews(post.slug)} Görüntülenme</p>
+								</motion.span>
 							</div>
 						</header>
 					</article>
